@@ -3,6 +3,9 @@ import 'package:provider/provider.dart'
     show ChangeNotifierProvider, MultiProvider, Consumer, Provider;
 
 export 'package:provider/provider.dart';
+import 'model/index.dart' show UserModel;
+export 'model/index.dart';
+export 'package:provider/provider.dart';
 
 class Store {
   static BuildContext context;
@@ -10,7 +13,9 @@ class Store {
 
   static init({context, child}) {
     return MultiProvider(
-      providers: [],
+      providers: [
+        ChangeNotifierProvider(builder: (_) => UserModel()),
+      ],
       child: child,
     );
   }
